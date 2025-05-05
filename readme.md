@@ -1,56 +1,100 @@
-Welcome to our technical assessment repository! This collection of challenges is designed to evaluate your ability to build AI-powered recruitment tools that solve real-world problems.
+# 💼 Candidate Engagement Chatbot
 
-## Instructions
+A full-stack chatbot application that helps engage job candidates by simulating recruitment conversations and summarizing candidate details based on their responses.
 
-1. Review the challenges below
-2. Choose ONE that best matches your skills and interests
-3. Fork this repository and implement your solution
-4. Submit a pull request with your completed challenge
+---
 
-## About Our Platform
+## 🛠️ Project Setup
 
-We are building an Agentic recruitment platform with specialized agents that automate key aspects of the hiring process. Our technology stack includes React, Node.js, TypeScript, and modern AI/LLM integrations.
+### 🔹 Frontend (React + TypeScript)
 
-## Challenge Options
+- Built using **Vite** for fast development.
+- Features a clean chat interface (user input + bot responses).
+- Maintains **conversation state** on the client side (UI only).
+- Displays a **Candidate Summary** at the end of the chat.
 
-Choose ONE of the following challenges:
+### 🔹 Backend (Node.js + TypeScript + Express)
 
-### [Advanced Candidate Matching System](./candidate-matcher.md)
-Design an intelligent system that matches candidates to jobs by understanding skill equivalence, experience depth, and potential fit.
+- Built with **Express** and TypeScript.
+- Exposes a single API endpoint:
 
-### [Intelligent Resume Parser](./resume-analyzer.md)
-Build a system that extracts structured, validated data from unstructured resume content.
 
-### [Candidate Engagement Chatbot](./candidate-engagement-bot.md)
-Create a conversational agent that provides job information while qualifying candidates through natural dialogue.
+- Accepts: user input + conversation history.
+- Returns: bot-generated response + extracted candidate info.
 
-### [Technical Interview Question Generator](./interview-generator.md)
-Develop a tool that generates tailored technical interview questions with appropriate difficulty calibration.
+---
 
-## Evaluation Criteria
+## 🧠 Backend Core Logic
 
-Regardless of which challenge you choose, we'll evaluate your submission on:
+### ✅ Conversation State Management
 
-1. **Problem Solving**: How you approach and decompose a complex problem
-2. **AI Integration**: Strategic use of LLMs beyond simple prompt engineering
-3. **Code Quality**: Structure, readability, and maintainability
-4. **System Design**: Architecture decisions and technical tradeoffs
-5. **Functionality**: Effectiveness of your solution for the intended use case
+- Stores **conversation history per session** (in-memory or using a session ID).
+- Tracks candidate-provided info like:
+- Skills
+- Experience
+- Technologies
+- Preferences
 
-## Time Expectation
+### 📋 Job Description
 
-Each challenge is designed to take approximately 4-8 hours. We value your time and don't expect a production-ready system. Focus on demonstrating your approach and technical thinking rather than perfecting every detail.
+- Uses a **hardcoded job profile**, e.g.:
 
-## Submission Process
+### 🤖 LLM Integration (Hugging Face)
 
-1. Fork this repository
-2. Create a new branch with a descriptive name (`your-name-solution`)
-3. Implement your solution
-4. Submit a pull request with a summary of your approach
-5. Include setup instructions in your README
+- Uses a **free Hugging Face model** for generating responses and extracting candidate information.
 
-We're excited to see your creative solutions to these challenges!
+---
 
-## Questions?
+## ⚙️ Local Development Setup
 
-If you have questions about the assignment, please open an issue in this repository.
+### 🔸 Backend
+
+1. Create a `.env` file in the `backend/` folder with the following content:
+
+  ```env
+  HF_API_KEY=hf-xxxxx
+  HF_API_URL=https://api-inference.huggingface.co/models/your-model-name
+  ```
+
+2. Install dependencies:
+
+  ```bash
+  npm install
+  ```
+
+3. Run the backend server:
+
+  ```bash
+  npm run dev
+  ```
+
+---
+
+### 🔸 Frontend
+
+1. Navigate to the `frontend/` folder.
+
+2. Install dependencies:
+
+  ```bash
+  npm install
+  ```
+
+3. Start the Vite development server:
+
+  ```bash
+  npm run dev
+  ```
+
+---
+
+## ✅ To Do
+
+- [ ] Add real-time typing indicator
+- [ ] Store candidate summaries to backend DB (optional)
+- [ ] Support multiple job profiles
+
+
+testing image: 
+
+![Uploading image.png…]()
